@@ -21,7 +21,7 @@ def home(request):
       'title': title
    }
 
-   return render(request, 'rate/home.html', context)
+   return render(request, 'home.html', context)
 
 
 def search(request):
@@ -38,7 +38,7 @@ def search(request):
       'searched': searched
    }
 
-   return render(request, 'rate/search.html', context)
+   return render(request, 'search.html', context)
 
 @login_required(login_url='register')
 def profile(request):
@@ -52,7 +52,7 @@ def profile(request):
       'projects': projects
    }
 
-   return render(request,'rate/profile.html',context)
+   return render(request,'profile.html',context)
 
 
 
@@ -80,7 +80,7 @@ def register(request):
       'form': form
    }
 
-   return render(request,'rate/register.html',context)
+   return render(request,'register.html',context)
 
 @login_required(login_url='register')
 def edit_profile(request):
@@ -108,7 +108,7 @@ def edit_profile(request):
       'title': title
    }
 
-   return render(request,'rate/update_profile.html',context)
+   return render(request,'update_profile.html',context)
 
 @login_required(login_url='register')
 def new_project(request):
@@ -132,7 +132,7 @@ def new_project(request):
       'title': title
    }
 
-   return render(request, 'rate/new_project.html',context)
+   return render(request, 'new_project.html',context)
 
 @login_required(login_url='register')
 def project_view(request,id):
@@ -179,7 +179,7 @@ def project_view(request,id):
       'form': form,
    }
 
-   return render(request,'rate/project_view.html',context)
+   return render(request,'project_view.html',context)
 
 @login_required(login_url='register')
 def logout_view(request):
