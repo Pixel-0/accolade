@@ -2,7 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 
 # Create your models here.
-
 class Profile(models.Model):
    '''
    Holds user's profile data.
@@ -14,6 +13,16 @@ class Profile(models.Model):
 
    def __str__(self):
       return self.user.username
+
+class Language(models.Model):
+   '''
+   Holds data for the programming languages used.
+   '''
+
+   language = models.CharField(max_length=50)
+
+   def __str__(self):
+      return self.language
 
 class Project(models.Model):
    '''
@@ -30,7 +39,7 @@ class Project(models.Model):
    
    def __str__(self):
       return self.name
-
+      
 class Rating(models.Model):
    '''
    Model to hold projects' ratings
