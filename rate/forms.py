@@ -1,14 +1,12 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
-from .models import Profile,Project,Contact,Rating,Language
+from .models import Profile,Project,Contact,Rating
 
 class Registration(UserCreationForm):
    '''
    User registration form.
    '''
-   first_name = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'First Name'}))
-   last_name = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Last Name'}))
    username = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Username'}))
    email= forms.EmailField(widget=forms.EmailInput(attrs={'placeholder': 'Email'}), max_length=64)
    password1= forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Password'}))
@@ -17,7 +15,7 @@ class Registration(UserCreationForm):
 
    class Meta(UserCreationForm.Meta):
       model = User
-      fields = UserCreationForm.Meta.fields + ("first_name","last_name","email","username","password1")
+      fields = UserCreationForm.Meta.fields + ("email","username","password1")
 
 
 class LoginForm(AuthenticationForm):
@@ -68,7 +66,7 @@ class ProjectForm(forms.ModelForm):
 
    class Meta:
       model = Project
-      fields = ['name','img','description','link','language']
+      fields = ['name','img','description','link']
 
 
 class RatingForm(forms.ModelForm):
@@ -82,11 +80,6 @@ class RatingForm(forms.ModelForm):
       (3,''),
       (4,''),
       (5,''),
-      (6,''),
-      (7,''),
-      (8,''),
-      (9,''),
-      (10,'')
    )
 
    design = forms.ChoiceField(choices=RATINGS, widget=forms.RadioSelect())
