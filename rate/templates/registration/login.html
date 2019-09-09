@@ -6,14 +6,34 @@
    <div class="nav-bg">
       {% include "rate/nav.html" %}
    </div>
-
-   <div class="auth-form">
-      <form action="" method="post">
-         {% csrf_token %}
-         {{ form.as_p }}
-         <button class="btn btn-secondary" type="submit">Log In</button>
-      </form>
-      <h3 class="auth-switch">Don't have an account? <a href="{% url 'register' %}">Sign Up</a></h3>
+<div class="row">
+   <div class="col-md-3"></div>
+   <div class="col-md-8 card">
+         <div class="auth-form">
+               <form style="margin-top: 6%;" action="" method="post">
+                  {% csrf_token %}
+                  {{ form.as_p }}
+                  <button class="btn btn-secondary" type="submit">Log In</button>
+               </form>
+               <h3 class="auth-switch">Don't have an account? <a href="{% url 'register' %}">Sign Up</a></h3>
+            </div>
    </div>
+   <div class="col-md-3"></div>
+</div>
+
+<style>
+      .card {
+         width: 80%;
+         min-height: 460px;
+         margin-top: 60px;
+         box-shadow: 0px 8px 60px -10px rgba(13, 28, 39, 0.6);
+         background: rgba(255, 255, 255, 0.417);
+         border-radius: 12px;
+         max-width: 700px;
+         position: relative;
+         text-align: center;
+      }
+   </style>
+   
   
 {% endblock content %}
