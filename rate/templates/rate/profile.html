@@ -5,9 +5,8 @@
    <div class="nav-bg">
       {% include "rate/nav.html" %}
    </div>
-
-   <div class="prfl-container">
-      <div class="prfl-card">
+   
+      <div style="text-align: center; background-color:rgba(255, 255, 255, 0.678);" class="jumbotron">
          <div class="avatar-lg">
             <img style="border-radius: 100%" width="10%;"  src="{{ user.profile.avatar.url }}" alt="">
          </div>
@@ -15,8 +14,9 @@
             <div class="bio">
                <h1>{{ user.first_name }} {{ user.last_name }}</h1>
                <p>@{{ user.username }}</p>
-               <p class="bio-txt">{{ user.profile.bio }}</p>
+               <h3 class="bio-txt">{{ user.profile.bio }}</h3>
             </div>
+            <br>
             <div class="contacts">
                <div class="email">
                   <a href="/{{ user.email }}" clci>{{ user.email }}</a>
@@ -45,40 +45,57 @@
             </div>
          </div>
       </div>
-<br>
+
       <div class="project-pane">
          {% for prjct in projects  %}
-            <a href="{% url 'project_view' prjct.id %}">
-               <div class="project-card">
-                  <div class="image">
-                     <img width="100%;" src="{{ prjct.img.url }}" alt="{{ prjct.name }}">
-                  </div>
-                  <div class="project-desc">
-                     <div class="author">
-                        <div style="border-radius: 100%" width="20%;"  class="avatar-sm">
-                           <img width="100px;" src="{{ prjct.author.avatar.url }}" alt="">
-                        </div>
-                        <p>{{ prjct.author.user.first_name }} {{ prjct.author.user.last_name }}</p>
-                     </div>
-                     <h4>{{ prjct.name }}</h4>
-                     <div class="languages">
-                        {% for lng in prjct.language.all  %}
-                           <p>#{{ lng.language }}</p>
-                        {% endfor %}
-                     </div>
+            <div class="container">
+<div class="row">
+   {% for prjct in projects  %}
+   <div class="col-md-6">
+      <div class="card">
+         <a href="{% url 'project_view' prjct.id %}">
+            <div class="card-title">
+               <img style="border-radius: 100%" width="20%;" src="{{ prjct.author.avatar.url }}" alt="">
+               <h4>{{ prjct.name }}</h4>
+            </div>
+            <div class="card-body">
+               <img width="100%;" src="{{ prjct.img.url }}" alt="{{ prjct.name }}">
+            </div>
+            <div class="project-desc">
+               <div class="author">
+                  <p>{{ prjct.author.user.first_name }} {{ prjct.author.user.last_name }}</p>
+               </div>
+            </div>
+      </div>
+   </div>
 
-                  </div>        
-               </div>        
+
+
+   </a>
+   {% endfor %}
+</div>
+</div>        
             </a>
          {% endfor %}
       </div>
-   </div>
+ 
   
 <style>
    i {
       font-size: 1.3em;
       color: #000;
    }
+   .card {
+         width: 80%;
+         min-height: 460px;
+         margin-top: 60px;
+         box-shadow: 0px 8px 60px -10px rgba(13, 28, 39, 0.6);
+         background: rgba(255, 255, 255, 0.417);
+         border-radius: 12px;
+         max-width: 700px;
+         position: relative;
+         text-align: center;
+      }
 </style>
 
 {% endblock content %}
