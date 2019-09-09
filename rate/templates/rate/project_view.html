@@ -4,76 +4,87 @@
 {% block content %}
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 <div class="nav-bg">
    {% include "rate/nav.html" %}
 </div>
+<br>
+<div class="row">
+   <div class="col-md-6">
+         <div style="display:flex; flex-direction: right;">
+               <img width="100px" style="border-radius: 100%" src="{{ project.author.avatar.url }}" alt="">
+               <h1 class="title">{{ project.name }} <a href="{{project.link}}"><i class="fas fa-external-link-alt"></i></a></h1>
+            </div>
+            <br>
+            
+            <img width="650px;" src="{{ project.img.url }}" alt="">
+            
+            <p>{{ project.author.user.first_name }} {{ project.author.user.last_name }}</p>
+            <div class="project-meta">
+            
+               <h5>{{ project.time_published|date:'M d, Y' }}</h5>
+            </div>
+   </div>
 
-   
-<h1 class="title">{{ project.name }} <a href="{{project.link}}"><i class="fas fa-external-link-alt"></i></a></h1>
-     
-         <img src="{{ project.img.url }}" alt="">
-      
-            <img src="{{ project.author.avatar.url }}" alt="">
-
-         <p>{{ project.author.user.first_name }} {{ project.author.user.last_name }}</p>
-      <div class="project-meta">
+   <div class="col-md-6">
+               <div class="overall">
+                  <i class="fas fa-star"></i>
+                  <div>
+                     <h1>{{ average|floatformat }}</h1>
+                  </div>
+               </div>
+            
          
-
-         <h5>{{ project.time_published|date:'M d, Y' }}</h5>
-         <div class="ratings">
-            <div class="overall">
-               <i class="fas fa-star"></i>
-               <div>
-                  <h1>{{ average|floatformat }}</h1>
-               </div>
-            </div>
+         <div class="description">
+         
+            <p>{{ project.description }}</p>
          </div>
-      </div>
-      <div class="description">
-
-         <p>{{ project.description }}</p>
-      </div>
-      <div class="reviews">
-         {% for rating in ratings  %}
-         <div class="prjct-review">
-            <div class="author">
-               <div>
-                  <img src="{{ rating.rated_by.avatar.url }}" alt="">
-               </div>
-               <p>{{ rating.rated_by.user.username }}</p>
-            </div>
-            <p class="the-review">{{ rating.review }}</p>
-            <div class="ratings">
-               <div>
-                  <i class="fas fa-star"></i>
+         <div class="reviews">
+            {% for rating in ratings  %}
+            <div class="prjct-review">
+               <div class="author">
                   <div>
-                     <h1>{{ rating.design }}</h1>
+                     <img width="100px" style="border-radius: 100%" src="{{ rating.rated_by.avatar.url }}" alt="">
                   </div>
+                  <p>{{ rating.rated_by.user.username }}</p>
                </div>
-               <div>
-                  <i class="fas fa-star"></i>
+               <p class="the-review">{{ rating.review }}</p>
+               <div class="ratings">
                   <div>
-                     <h1>{{ rating.usability }}</h1>
+                     <i class="fas fa-star"></i>
+                     <div>
+                        <h1>{{ rating.design }}</h1>
+                     </div>
                   </div>
-               </div>
-               <div>
-                  <i class="fas fa-star"></i>
                   <div>
-                     <h1>{{ rating.content }}</h1>
+                     <i class="fas fa-star"></i>
+                     <div>
+                        <h1>{{ rating.usability }}</h1>
+                     </div>
+                  </div>
+                  <div>
+                     <i class="fas fa-star"></i>
+                     <div>
+                        <h1>{{ rating.content }}</h1>
+                     </div>
                   </div>
                </div>
             </div>
+            {% endfor %}
          </div>
-         {% endfor %}
-      </div>
-      <div class="rating-form">
-         <form action="" method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-         </form>
+         <div class="rating-form">
+            <form action="" method="post">
+               {% csrf_token %}
+               {{ form.as_p }}
+            </form>
+         </div>
       </div>
    </div>
+
+ 
+   
+
 
 
 <style>
@@ -93,32 +104,33 @@
       display: none;
    }
 
-   li#id_design label > input:checked {
-         font-family: "Font Awesome 5 Free";
-         content: '\f005';
-         display: inline-block;
-         color: rgba(#333,0.2);
-         font-weight: 900;
-      }
-      input:checked ::before {
-         font-family: "Font Awesome 5 Free";
-         content: '\f005';
-         display: inline-block;
-         color: rgba(#333,0.2);
-         font-weight: 900;
-      }      
-   
-   li > label::before {
+   li#id_design label>input:checked {
+      font-family: "Font Awesome 5 Free";
+      content: '\f005';
+      display: inline-block;
+      color: rgba(#333, 0.2);
+      font-weight: 900;
+   }
+
+   input:checked ::before {
+      font-family: "Font Awesome 5 Free";
+      content: '\f005';
+      display: inline-block;
+      color: rgba(#333, 0.2);
+      font-weight: 900;
+   }
+
+   li>label::before {
       cursor: pointer;
       font-family: "Font Awesome 5 Free";
       content: '\f005';
       display: inline-block;
-      color: rgba(#333,0.2);
+      color: rgba(#333, 0.2);
       font-weight: 900;
    }
 
-   li > label:hover::before,
-   li > label:hover ~ label::before {
+   li>label:hover::before,
+   li>label:hover~label::before {
       cursor: pointer;
       font-family: "Font Awesome 5 Free";
       content: '\f005';
@@ -126,8 +138,6 @@
       color: clr(scndry);
       font-weight: 900;
    }
-
-
 </style>
 
 {% endblock content %}

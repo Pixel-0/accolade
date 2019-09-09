@@ -19,6 +19,8 @@
       {% for prjct in projects  %}
          <a href="{% url 'project_view' prjct.id %}">
             <div class="card-title">
+                  <img width="100px;" src="{{ prjct.author.avatar.url }}" alt="">
+
                   <h4>{{ prjct.name }}</h4>
                </div> 
                <div class="card-body">
@@ -26,9 +28,7 @@
                </div>
                <div class="project-desc">
                   <div class="author">
-                     <div class="avatar-sm">
-                        <img src="{{ prjct.author.avatar.url }}" alt="">
-                     </div>
+                    
                      <p>{{ prjct.author.user.first_name }} {{ prjct.author.user.last_name }}</p>
                   </div>
 
