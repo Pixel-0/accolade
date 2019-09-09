@@ -13,7 +13,7 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 def home(request):
 
-   title = "Rated"
+   title = "Accolade"
    projects = Project.objects.all()
 
    context = {

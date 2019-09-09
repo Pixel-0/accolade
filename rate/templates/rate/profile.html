@@ -9,7 +9,7 @@
    <div class="prfl-container">
       <div class="prfl-card">
          <div class="avatar-lg">
-            <img width="200px" src="{{ user.profile.avatar.url }}" alt="">
+            <img style="border-radius: 100%" width="10%;"  src="{{ user.profile.avatar.url }}" alt="">
          </div>
          <div class="prfl-desc">
             <div class="bio">
@@ -35,6 +35,7 @@
                      <i class="fab fa-github"></i>
                   </a>
                </div>
+               <br>
                <a href="{% url 'update_profile' %}">
                   <button class='btn btn-dark'>Edit Profile</button>
                </a>
@@ -44,17 +45,17 @@
             </div>
          </div>
       </div>
-
+<br>
       <div class="project-pane">
          {% for prjct in projects  %}
             <a href="{% url 'project_view' prjct.id %}">
                <div class="project-card">
                   <div class="image">
-                     <img src="{{ prjct.img.url }}" alt="{{ prjct.name }}">
+                     <img width="100%;" src="{{ prjct.img.url }}" alt="{{ prjct.name }}">
                   </div>
                   <div class="project-desc">
                      <div class="author">
-                        <div class="avatar-sm" style="width: 20%;">
+                        <div style="border-radius: 100%" width="20%;"  class="avatar-sm">
                            <img width="100px;" src="{{ prjct.author.avatar.url }}" alt="">
                         </div>
                         <p>{{ prjct.author.user.first_name }} {{ prjct.author.user.last_name }}</p>
