@@ -13,17 +13,17 @@
 <div class="row">
    <div class="col-md-6">
          <div style="display:flex; flex-direction: right;">
-               <img width="100px" style="border-radius: 100%" src="{{ project.author.avatar.url }}" alt="">
-               <h1 class="title">{{ project.name }} <a href="{{project.link}}"><i style="font-size: 0.5em;" class="fas fa-external-link-alt"></i></a></h1>
+               <img style="border-radius: 100%" width="20%;" src="{{ project.author.avatar.url }}" alt="">
+               <h1 style="color: #fff;" class="title">{{ project.name }} <a href="{{project.link}}"><i style="font-size: 0.5em; color: #000;" class="fas fa-external-link-alt"></i></a></h1>
             </div>
             <br>
             
-            <img width="650px;" src="{{ project.img.url }}" alt="">
+            <img width="100%;" src="{{ project.img.url }}" alt="">
             
             <p>{{ project.author.user.first_name }} {{ project.author.user.last_name }}</p>
             <div class="project-meta">
             
-               <h5>{{ project.time_published|date:'M d, Y' }}</h5>
+               <h5 style="color: #fff;">{{ project.time_published|date:'M d, Y' }}</h5>
             </div>
    </div>
 

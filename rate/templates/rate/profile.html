@@ -45,41 +45,31 @@
             </div>
          </div>
       </div>
-
-      <div class="project-pane">
-         {% for prjct in projects  %}
-            <div class="container">
-<div class="row">
-   {% for prjct in projects  %}
-   <div class="col-md-6">
-      <div class="card">
-         <a href="{% url 'project_view' prjct.id %}">
-            <div class="card-title">
-               <img style="border-radius: 100%" width="20%;" src="{{ prjct.author.avatar.url }}" alt="">
-               <h4>{{ prjct.name }}</h4>
-            </div>
-            <div class="card-body">
-               <img width="100%;" src="{{ prjct.img.url }}" alt="{{ prjct.name }}">
-            </div>
-            <div class="project-desc">
-               <div class="author">
-                  <p>{{ prjct.author.user.first_name }} {{ prjct.author.user.last_name }}</p>
+      <div class="container">
+            <div class="row">
+               {% for prjct in projects  %}
+               <div class="col-md-6">
+                  <div class="card">
+                     <a href="{% url 'project_view' prjct.id %}">
+                        <div class="card-title">
+                           <img style="border-radius: 100%" width="20%;" src="{{ prjct.author.avatar.url }}" alt="">
+                           <h4 style="color:#000;">{{ prjct.name }}</h4>
+                        </div>
+                        <div class="card-body">
+                           <img width="100%;" src="{{ prjct.img.url }}" alt="{{ prjct.name }}">
+                        </div>
+                        <div class="project-desc">
+                           <div class="author">
+                              <p>{{ prjct.author.user.first_name }} {{ prjct.author.user.last_name }}</p>
+                           </div>
+                        </div>
+                  </div>
                </div>
+               </a>
+               {% endfor %}
             </div>
-      </div>
-   </div>
-
-
-
-   </a>
-   {% endfor %}
-</div>
-</div>        
-            </a>
-         {% endfor %}
-      </div>
- 
-  
+            </div>
+            
 <style>
    i {
       font-size: 1.3em;

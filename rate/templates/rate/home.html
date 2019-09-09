@@ -20,9 +20,9 @@
    <div class="col-md-6">
       <div class="card">
          <a href="{% url 'project_view' prjct.id %}">
-            <div class="card-title">
+            <div style="text-align: center;" class="card-title">
                <img style="border-radius: 100%" width="20%;" src="{{ prjct.author.avatar.url }}" alt="">
-               <h4>{{ prjct.name }}</h4>
+               <h4 style="color: #000;">{{ prjct.name }}</h4>
             </div>
             <div class="card-body">
                <img width="100%;" src="{{ prjct.img.url }}" alt="{{ prjct.name }}">

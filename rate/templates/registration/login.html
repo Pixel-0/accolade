@@ -14,7 +14,9 @@
                   {% csrf_token %}
                   {{ form.as_p }}
                   <button class="btn btn-secondary" type="submit">Log In</button>
+                  <br>
                </form>
+               <br>
                <h3 class="auth-switch">Don't have an account? <a href="{% url 'register' %}">Sign Up</a></h3>
             </div>
    </div>
