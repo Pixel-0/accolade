@@ -43,6 +43,7 @@ def search(request):
 @login_required(login_url='register')
 def profile(request):
    user = request.user
+   print(user)
 
    projects = Project.objects.filter(author=user.profile)
 
@@ -71,7 +72,7 @@ def register(request):
          profile = Profile(user=user)
          profile.save()
 
-         return redirect('update_profile')
+         return redirect('home')
    else:
       form = Registration()
 
