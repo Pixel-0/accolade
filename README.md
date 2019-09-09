@@ -1,6 +1,6 @@
 # Accolade
 
-### Saram Munini
+### Sara Munini
 
 A web app that allows user to post their projects and have them rated based on design,usability and content.
 
