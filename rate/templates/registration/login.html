@@ -11,9 +11,9 @@
       <form action="" method="post">
          {% csrf_token %}
          {{ form.as_p }}
-         <button class="btn" type="submit">Log In</button>
+         <button class="btn btn-secondary" type="submit">Log In</button>
       </form>
-      <p class="auth-switch">Don't have an account? <a href="{% url 'register' %}">Sign Up</a></p>
+      <h3 class="auth-switch">Don't have an account? <a href="{% url 'register' %}">Sign Up</a></h3>
    </div>
   
 {% endblock content %}
