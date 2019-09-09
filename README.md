@@ -1,10 +1,9 @@
-# Rated
+# Accolade
 
-###### Authored by Michael Kipchumba
+### Saram Munini
 
 A web app that allows user to post their projects and have them rated based on design,usability and content.
 
-[Live Site](https://rated.herokuapp.com/login/)
 
 ### Project Approach
    
@@ -32,35 +31,9 @@ A web app that allows user to post their projects and have them rated based on d
 
 - Fonts from [Google Fonts](fonts.google.com)
 
-### API
-
-This project consists of a simple HTTP REST API for getting profile and project data.
-
-To get profile data follow use this url:
-   - `https://hyoukasuru.herokuapp.com/api/profiles/`
-
-To get projects data follow this url:
-   - `https://hyoukasuru.herokuapp.com/api/projects/`
-
 
 ### Setting Up
 
-If you feel like using this project as your own you can do so, following the instructions below:
-
-   - Go to your chosen directory.
-   - `git clone https://github.com/mikechumba/insta/`
-   - `cd <your-dir>/insta`
-
-This project requires that you have python 3.6+ set up. You can follow the instructions [here](realpython.com/installing-python/) to achieve that, if you haven't.
-
-You will also need to install Django. Follow the instructions [here](https://www.djangoproject.com/start/).
-
-### Debugging
-
-This app doesn't seem to have any bugs for now. If you happen to come across one, I will be happy to take a look at it. Contact Me on:
-
-- [Facebook](https://web.facebook.com/ItsMikeChumba/)
-- [Email](michaelchumba09@gmail.com)
 
 ### License 
 

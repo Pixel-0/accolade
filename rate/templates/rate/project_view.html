@@ -93,23 +93,21 @@
       display: none;
    }
 
-   li#id_design label {
-      > input:checked {
+   li#id_design label > input:checked {
          font-family: "Font Awesome 5 Free";
          content: '\f005';
          display: inline-block;
          color: rgba(#333,0.2);
          font-weight: 900;
       }
-      ~ ::before {
+      input:checked ::before {
          font-family: "Font Awesome 5 Free";
          content: '\f005';
          display: inline-block;
          color: rgba(#333,0.2);
          font-weight: 900;
       }      
-   }
-
+   
    li > label::before {
       cursor: pointer;
       font-family: "Font Awesome 5 Free";
@@ -129,7 +127,7 @@
       font-weight: 900;
    }
 
-}
+
 </style>
 
 {% endblock content %}

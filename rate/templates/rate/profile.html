@@ -1,5 +1,4 @@
 {% extends "rate/layout.html" %}
-{% load static %}
 
 {% block content %}
 
@@ -10,7 +9,7 @@
    <div class="prfl-container">
       <div class="prfl-card">
          <div class="avatar-lg">
-            <img src="{{ user.profile.avatar.url }}" alt="">
+            <img width="200px" src="{{ user.profile.avatar.url }}" alt="">
          </div>
          <div class="prfl-desc">
             <div class="bio">
@@ -37,10 +36,10 @@
                   </a>
                </div>
                <a href="{% url 'update_profile' %}">
-                  <button class='btn'>Edit Profile</button>
+                  <button class='btn btn-dark'>Edit Profile</button>
                </a>
                <a href="{% url 'logout' %}">
-                  <button class='btn'>Logout</button>
+                  <button class='btn btn-dark'>Logout</button>
                </a>
             </div>
          </div>
@@ -55,8 +54,8 @@
                   </div>
                   <div class="project-desc">
                      <div class="author">
-                        <div class="avatar-sm">
-                           <img src="{{ prjct.author.avatar.url }}" alt="">
+                        <div class="avatar-sm" style="width: 20%;">
+                           <img width="100px;" src="{{ prjct.author.avatar.url }}" alt="">
                         </div>
                         <p>{{ prjct.author.user.first_name }} {{ prjct.author.user.last_name }}</p>
                      </div>
@@ -74,4 +73,11 @@
       </div>
    </div>
   
+<style>
+   i {
+      font-size: 1.3em;
+      color: #000;
+   }
+</style>
+
 {% endblock content %}
