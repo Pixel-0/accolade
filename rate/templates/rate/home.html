@@ -2,31 +2,27 @@
 {% load static %}
 
 {% block content %}
+{% include "rate/nav.html" %}
 
-   <div class="page"></div>
-   <div class="nav-bg">
-      {% include "rate/nav.html" %}
-      <div class="searchform">
-         <form action="{% url 'search' %}" method="get">
-            {% csrf_token %}
-            <input type="text" name="project_search" id="prjct-search" placeholder="Search for a project">
-         </form>
-      </div>
-   </div>
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+   integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+   
    {% if user.is_authenticated %}
-      <div class="container new-post">
+   <hr>
          <a href="{% url 'new_project' %}">
-            <button class='btn'><i class="fas fa-plus-circle"></i> Add Project</button>
+            <button class='btn btn-dark'><i class="fas fa-plus-circle"></i> Add Project</button>
          </a>
-      </div>     
+    
    {% endif %}
 
-   <div class="project-pane">
+   <div class="card"> 
       {% for prjct in projects  %}
          <a href="{% url 'project_view' prjct.id %}">
-            <div class="project-card">
-               <div class="image">
-                  <img src="{{ prjct.img.url }}" alt="{{ prjct.name }}">
+            <div class="card-title">
+                  <h4>{{ prjct.name }}</h4>
+               </div> 
+               <div class="card-body">
+                  <img width="500px;" src="{{ prjct.img.url }}" alt="{{ prjct.name }}">
                </div>
                <div class="project-desc">
                   <div class="author">
@@ -35,18 +31,24 @@
                      </div>
                      <p>{{ prjct.author.user.first_name }} {{ prjct.author.user.last_name }}</p>
                   </div>
-                  <h4>{{ prjct.name }}</h4>
-                  <div class="languages">
-                     {% for lng in prjct.language.all  %}
-                       <p>#{{ lng.language }}</p>
-                     {% endfor %}
-                  </div>
 
                </div>        
-            </div>        
+                   
          </a>
       {% endfor %}
    </div>
 
+   <style>
+      .card {
+  width: 80%;
+  min-height: 460px;
+  margin-top: 60px;
+  box-shadow: 0px 8px 60px -10px rgba(13, 28, 39, 0.6);
+  background: #fff;
+  border-radius: 12px;
+  max-width: 700px;
+  position: relative;
+}
+   </style>
   
 {% endblock content %}
