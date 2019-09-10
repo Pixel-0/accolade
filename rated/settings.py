@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'bootstrap3',
+    
 ]
 
 MIDDLEWARE = [
@@ -74,7 +75,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'rated.wsgi.application'
 
-MODE=config("MODE", default="dev")
+MODE=config("ODE", default="dev")
 SECRET_KEY=config('SECRET_KEY')
 DEBUG=config('DEBUG',default=False,cast=bool)
 

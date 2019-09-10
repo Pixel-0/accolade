@@ -6,9 +6,10 @@ from .forms import Registration,LoginForm,ProfileUpdateForm,ContactUpdateForm,Pr
 from django.db.models import Sum
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from .serializer import ProfileSerializer,ProjectSerializer,UserSerializer
 from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
+from .serializer import *
+
 
 # Create your views here.
 def home(request):
@@ -190,13 +191,13 @@ def logout_view(request):
 
 
 class ProfileList(APIView):
-   def get(self,request,format=None):
-      users = User.objects.all()
-      serializers = UserSerializer(users,many=True)
-      return Response(serializers.data)
+    def get(self, request, format=None):
+        all_profiles = Profile.objects.all()
+        serializers = ProfileSerializer(all_profiles, many=True)
+        return Response(serializers.data)
 
 class ProjectList(APIView):
-   def get(self,request,format=None):
-      projects = Project.objects.all()
-      serializers = ProjectSerializer(projects,many=True)
-      return Response(serializers.data)
+    def get(self, request, format=None):
+        all_projects = Project.objects.all()
+        serializers = ProjectSerializer(all_projects, many=True)
+        return Response(serializers.data)
